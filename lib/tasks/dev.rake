@@ -7,10 +7,11 @@ namespace :dev do
   end
 
   def add_article
-    50.times do
+    100.times do
       Article.create(
         title: Faker::Lorem.sentence.delete("."),
         body: Faker::Lorem.paragraph(sentence_count: rand(100..200)),
+        public: [true, false].sample,
       )
     end
   end
