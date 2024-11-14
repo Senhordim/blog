@@ -61,3 +61,4 @@ group :development do
 end
 
 gem "faker", "~> 3.5"
+gem "friendly_id", "~> 5.5", ">= 5.5.1"

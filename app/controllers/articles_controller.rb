@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article_with_slug, only: [:show]
 
   # GET /articles or /articles.json
   def index
@@ -64,6 +64,10 @@ class ArticlesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find(params.expect(:id))
+  end
+
+  def set_article_with_slug
+    @article = Article.friendly.find(params.expect(:id))
   end
 
   # Only allow a list of trusted parameters through.
