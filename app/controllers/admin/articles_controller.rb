@@ -2,6 +2,8 @@
 
 module Admin
   class ArticlesController < ApplicationController
+    before_action :authenticate_user!
+
     layout "admin"
 
     before_action :set_article, only: [:show, :edit, :update, :destroy]
